@@ -13,3 +13,4 @@ vosk
 wxPython
 wolframalpha
 PyAudio
+espeak
