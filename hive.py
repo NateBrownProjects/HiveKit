@@ -1,9 +1,8 @@
-# H.I.V.E V.2.0.1 STABLE : Home-Assistant Integrated Virtual Environment
+# HiveKit V.1.0.1 STABLE : Home-Assistant Integrated Virtual Environment
 # VIEW THE HIVE PROJECT AT HTTPS://NateBrownProjects.GitHub.io/TheHiveProject/
 # Copyright: Nate Brown Projects 2021 / Nate Brown 2021 / TheHiveProjectNZ 2021
 import speech_recognition as sr
 import pyttsx3
-import pywhatkit
 import datetime
 import math
 from datetime import timedelta
@@ -88,7 +87,7 @@ def tempw():
     mgr = owm.weather_manager()
     observation = mgr.weather_at_place('Auckland,NZ')
     w = observation.weather
-    talk('The temperature is: ' + str(w.temperature('celsius')['temp']) + '°C')
+    talk('The temperature is: ' + str(w.temperature('celsius')['temp']) + 'Degrees')
 
 def cloudw():
     owm = OWM('c315355b9f2f252cf5dbab09eff036ae')
@@ -130,10 +129,6 @@ def run_hive():
     if 'hive' in command:
         command = command.replace('hive', '')
         print('Command: ' + command)
-    if 'play' in command:
-        song = command.replace('play', '')
-        talk('Playing ' + song, False)
-        pywhatkit.playonyt(song)
     elif 'qtalk' in command:
         qtalk(listener)
     elif 'news' in command:
@@ -222,8 +217,8 @@ def run_hive():
         talk('Invalid Command!', False, 'Please say the command again.')
         take_command()
 
-talk('Systems Loaded, Welcome to HIVE Kit! Version 2.0.1.Stable.\n\nHow can i help you today?')
-
+talk('Systems Loaded, Welcome to HIVE Kit! Version 1.0.1.Stable.\n\nHow can i help you today? This is a security Notice! Nate Brown Projects, Hive and HiveKit does not collect any data or infomation about you. Thank you.')
+print('This is a security Notice! Nate Brown Projects, H.I.V.E and HiveKit does not collect any data or infomation about you. Thank you.')
 while True:
     try:
         run_hive()
